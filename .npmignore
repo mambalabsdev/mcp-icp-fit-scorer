@@ -1,0 +1,9 @@
+# Source and build config are not shipped. Only the compiled build/ output is published.
+src/
+tsconfig.json
+.gitignore
+.editorconfig
+*.log
+.DS_Store
+.vscode/
+.idea/

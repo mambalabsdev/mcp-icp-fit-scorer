@@ -1,0 +1,41 @@
+{
+  "name": "@mambalabsdev/mcp-icp-fit-scorer",
+  "version": "1.0.0",
+  "description": "MCP server for ICP Fit Scorer. Scores a company against your ideal customer profile with weighted signals via Apify. Returns a 0 to 100 score, a tier, and a per-signal breakdown. Clay-ready output.",
+  "type": "module",
+  "bin": {
+    "mcp-icp-fit-scorer": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x build/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "icp",
+    "lead-scoring",
+    "qualification",
+    "apify",
+    "clay",
+    "lead-generation"
+  ],
+  "author": "Mamba Labs <labs@mambamindsetgrowth.com>",
+  "license": "MIT",
+  "homepage": "https://apify.com/mambalabs/icp-fit-scorer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mambalabsdev/mcp-icp-fit-scorer"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.6.0"
+  }
+}
