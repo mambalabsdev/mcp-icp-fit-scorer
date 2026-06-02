@@ -1,6 +1,6 @@
 {
   "name": "@mambalabsdev/mcp-icp-fit-scorer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "MCP server for ICP Fit Scorer. Scores a company against your ideal customer profile with weighted signals via Apify. Returns a 0 to 100 score, a tier, and a per-signal breakdown. Clay-ready output.",
   "type": "module",
   "bin": {

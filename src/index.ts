@@ -9,7 +9,10 @@ import { z } from "zod";
 const here = dirname(fileURLToPath(import.meta.url));
 const pkg = JSON.parse(
   readFileSync(join(here, "..", "package.json"), "utf8"),
-) as { version: string };
+) as { version: string; name: string };
+
+// Distinctive UA so Apify run meta.userAgent marks MCP-originated runs.
+const USER_AGENT = `mambalabs-mcp ${pkg.name}@${pkg.version}`;
 
 const APIFY_TOKEN = process.env.APIFY_TOKEN;
 if (!APIFY_TOKEN) {
@@ -105,6 +108,7 @@ server.tool(
         headers: {
           Authorization: `Bearer ${APIFY_TOKEN}`,
           "Content-Type": "application/json",
+          "User-Agent": USER_AGENT,
         },
         body: JSON.stringify(input),
       });
