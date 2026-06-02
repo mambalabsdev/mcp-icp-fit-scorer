@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "mamba-icp-scorer": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mambalabsdev/mcp-icp-fit-scorer"
+      ],
+      "env": {
+        "APIFY_TOKEN": "your-apify-token"
+      }
+    }
+  }
+}
