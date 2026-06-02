@@ -96,6 +96,17 @@ https://apify.com/mambalabs/icp-fit-scorer
 
 This is one of six actors in the Mamba Labs GTM Suite, covering hiring signals, tech stack detection, signal aggregation, job board keyword scanning, LinkedIn URL resolution, and ICP scoring. See them all at https://apify.com/mambalabs.
 
+## Related Mamba Labs MCP servers
+
+The rest of the Mamba Labs GTM toolkit, each as its own MCP server:
+
+- [Mamba Labs GTM Suite (all six tools)](https://github.com/mambalabsdev/mcp-gtm-suite)
+- [GTM Hiring Signal Scraper](https://github.com/mambalabsdev/mcp-gtm-hiring-signal-scraper)
+- [GTM Tech Stack Signal Enrichment](https://github.com/mambalabsdev/mcp-gtm-tech-stack-signal-scraper)
+- [GTM Signals Aggregator](https://github.com/mambalabsdev/mcp-gtm-signals-aggregator)
+- [Job Board Keyword Signal Scanner](https://github.com/mambalabsdev/mcp-job-board-keyword-signal-scanner)
+- [Domain to LinkedIn URL Resolver](https://github.com/mambalabsdev/mcp-domain-to-linkedin-url-resolver)
+
 ## License
 
 MIT
