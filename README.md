@@ -1,5 +1,7 @@
 # ICP Fit Scorer MCP Server
 
+[![Smithery](https://smithery.ai/badge/mambabuilt/mcp-icp-fit-scorer)](https://smithery.ai/servers/mambabuilt/mcp-icp-fit-scorer)
+
 An MCP server that scores a company against your ideal customer profile. It wraps the Mamba Labs ICP Fit Scorer actor on Apify and returns a Clay-ready flat JSON row to any MCP client.
 
 ## What it does
