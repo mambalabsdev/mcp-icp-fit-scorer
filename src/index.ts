@@ -29,10 +29,20 @@ const server = new McpServer({
 // batch inputs (dataset_id, csv_url), a webhook, and ~18 manual signal-override
 // fields; those are intentionally not surfaced here. Use fetch_signals to let the
 // actor gather hiring and tech-stack signals on its own.
-server.tool(
+server.registerTool(
   "score_icp_fit",
-  "Score a company against your ideal customer profile (ICP) using weighted signals. Returns a 0 to 100 icp_score, an A to D icp_tier, and a per-signal breakdown as a flat, Clay-ready JSON row. Define your ICP with a prebuilt template, a JSON scoring_config, or a plain-English icp_description (which requires llm_api_key).",
   {
+    title: "Score ICP Fit",
+    description:
+      "Score a company against your ideal customer profile (ICP) using weighted signals. Returns a 0 to 100 icp_score, an A to D icp_tier, and a per-signal breakdown as a flat, Clay-ready JSON row. Define your ICP with a prebuilt template, a JSON scoring_config, or a plain-English icp_description (which requires llm_api_key). Read-only; requires an APIFY_TOKEN and consumes Apify credits per call.",
+    annotations: {
+      title: "Score ICP Fit",
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: true,
+    },
+    inputSchema: {
     company_domain: z
       .string()
       .describe("The primary domain of the company to score. Example: clay.com"),
@@ -75,6 +85,7 @@ server.tool(
       .describe(
         "If true, adds a score_explanation string to the output describing how the score was derived.",
       ),
+  },
   },
   async (args) => {
     if (!APIFY_TOKEN) {
