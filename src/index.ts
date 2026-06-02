@@ -15,16 +15,6 @@ const pkg = JSON.parse(
 const USER_AGENT = `mambalabs-mcp ${pkg.name}@${pkg.version}`;
 
 const APIFY_TOKEN = process.env.APIFY_TOKEN;
-if (!APIFY_TOKEN) {
-  console.error(
-    [
-      "APIFY_TOKEN is not set.",
-      "This server needs an Apify API token to run the ICP Fit Scorer actor.",
-      "Create a token at https://console.apify.com/account/integrations and pass it as the APIFY_TOKEN environment variable.",
-    ].join("\n"),
-  );
-  process.exit(1);
-}
 
 // The tilde between the org name and the actor name is Apify's required separator.
 const ACTOR_ENDPOINT =
@@ -87,6 +77,10 @@ server.tool(
       ),
   },
   async (args) => {
+    if (!APIFY_TOKEN) {
+      return { isError: true, content: [{ type: "text", text: "APIFY_TOKEN is not set. Create a token at https://console.apify.com/account/integrations and set it as the APIFY_TOKEN environment variable." }] };
+    }
+
     const input: Record<string, unknown> = { company_domain: args.company_domain };
     for (const key of [
       "company_name",
