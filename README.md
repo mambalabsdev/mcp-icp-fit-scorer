@@ -62,6 +62,30 @@ This server exposes the single-company scoring path. The actor also supports bat
 
 The tool returns the actor's flat JSON row for the scored company, including `icp_score` (0 to 100), `icp_tier` (A to D), the per-signal breakdown, and an optional explanation. See the Apify Store page for the full output schema.
 
+## Example output
+
+```json
+{
+  "company_domain": "ramp.com",
+  "icp_score": 87,
+  "icp_tier": "A",
+  "lead_tag": "priority",
+  "score_hiring": 25,
+  "score_tech_stack": 22,
+  "score_headcount": 20,
+  "score_funding": 20,
+  "score_industry": 0,
+  "run_date": "2026-05-28"
+}
+```
+
+## Features
+
+- User-defined JSON scoring config with custom weights
+- Returns icp_score (0 to 100), icp_tier (A to D), and lead_tag
+- Per-signal point breakdown: hiring, tech stack, headcount, funding, industry
+- Replaces 6+ manual formula columns in Clay
+
 ## Full actor documentation
 
 This server is a thin client and holds no scoring logic. For the complete input and output reference, pricing, and run history, see the Apify Store page:
