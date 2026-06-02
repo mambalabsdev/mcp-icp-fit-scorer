@@ -1,0 +1,34 @@
+{
+  "name": "mcp-icp-fit-scorer",
+  "displayName": "ICP Fit Scorer",
+  "version": "1.0.1",
+  "description": "MCP server for ICP Fit Scorer. Scores a company against your ideal customer profile with weighted signals via Apify. Returns a 0 to 100 score, a tier, and a per-signal breakdown. Clay-ready output.",
+  "author": {
+    "name": "Mamba Labs",
+    "email": "labs@mambamindsetgrowth.com"
+  },
+  "homepage": "https://mambabuilt.com",
+  "repository": "https://github.com/mambalabsdev/mcp-icp-fit-scorer",
+  "license": "MIT",
+  "logo": "https://mmg-brand-assets.netlify.app/apify-actor-pngs/apify_icpfit.png",
+  "category": "productivity",
+  "tags": [
+    "icp",
+    "lead-scoring",
+    "qualification",
+    "apify",
+    "clay",
+    "lead-generation"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "icp",
+    "lead-scoring",
+    "qualification",
+    "apify",
+    "clay",
+    "lead-generation"
+  ],
+  "mcpServers": ".mcp.json"
+}

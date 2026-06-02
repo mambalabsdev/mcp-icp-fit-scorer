@@ -8,3 +8,4 @@ tsconfig.json
 .vscode/
 .idea/
 .mcp.json
+.cursor-plugin/
