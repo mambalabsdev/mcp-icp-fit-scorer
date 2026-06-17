@@ -1,6 +1,6 @@
 {
   "name": "@mambalabsdev/mcp-icp-fit-scorer",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "MCP server for ICP Fit Scorer. Scores a company against your ideal customer profile with weighted signals via Apify. Returns a 0 to 100 score, a tier, and a per-signal breakdown. Clay-ready output.",
   "type": "module",
   "bin": {
@@ -22,7 +22,7 @@
   ],
   "author": "Mamba Labs <labs@mambamindsetgrowth.com>",
   "license": "MIT",
-  "homepage": "https://apify.com/mambalabs/icp-fit-scorer",
+  "homepage": "https://apify.com/mambalabs/icp-account-lead-scoring-fit-scorer-0-100-for-clay",
   "repository": {
     "type": "git",
     "url": "https://github.com/mambalabsdev/mcp-icp-fit-scorer"

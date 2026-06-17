@@ -90,7 +90,7 @@ The tool returns the actor's flat JSON row for the scored company, including `ic
 
 This server is a thin client and holds no scoring logic. For the complete input and output reference, pricing, and run history, see the Apify Store page:
 
-https://apify.com/mambalabs/icp-fit-scorer
+https://apify.com/mambalabs/icp-account-lead-scoring-fit-scorer-0-100-for-clay
 
 ## Mamba Labs GTM Suite
 
