@@ -1,0 +1,37 @@
+{
+  "manifest_version": "0.3",
+  "name": "mcp-icp-fit-scorer",
+  "version": "1.0.5",
+  "description": "MCP server for ICP Fit Scorer. Scores a company against your ideal customer profile with weighted signals via Apify. Returns a 0 to 100 score, a tier, and a per-signal breakdown. Clay-ready output.",
+  "author": {
+    "name": "Mamba Labs"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/mambalabsdev/mcp-icp-fit-scorer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mambalabsdev/mcp-icp-fit-scorer"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "build/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/build/index.js"
+      ],
+      "env": {
+        "APIFY_TOKEN": "${user_config.apify_token}"
+      }
+    }
+  },
+  "user_config": {
+    "apify_token": {
+      "type": "string",
+      "title": "Apify API Token",
+      "description": "Apify API token for running the actor",
+      "sensitive": true,
+      "required": false
+    }
+  }
+}
