@@ -35,7 +35,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/node": "^20.14.0",
+    "@types/node": "^26.0.0",
     "typescript": "^5.6.0"
   },
   "mcpName": "com.mambabuilt/mcp-icp-fit-scorer"
