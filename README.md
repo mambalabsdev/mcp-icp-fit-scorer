@@ -4,6 +4,20 @@
 
 An MCP server that scores a company against your ideal customer profile. It wraps the Mamba Labs ICP Fit Scorer actor on Apify and returns a Clay-ready flat JSON row to any MCP client.
 
+## What's Inside
+
+- [What it does](#what-it-does)
+- [Quick start](#quick-start)
+- [Prerequisites](#prerequisites)
+- [Example prompts](#example-prompts)
+- [Inputs](#inputs)
+- [Output](#output)
+- [Example output](#example-output)
+- [Features](#features)
+- [Full actor documentation](#full-actor-documentation)
+- [Mamba Labs GTM Suite](#mamba-labs-gtm-suite)
+- [License](#license)
+
 ## What it does
 
 Give it a company domain and a definition of your ICP, and it scores the company on weighted signals, returning a 0 to 100 score, an A to D tier, and a per-signal breakdown. Define your ICP three ways: a prebuilt template, a JSON scoring config, or a plain-English description (which uses your own LLM key). Turn on `fetch_signals` and the actor will gather hiring and tech-stack signals for you before scoring. One flat row, ready for Clay, a CRM, or an AI agent workflow. All of the scoring runs on Apify. This package is a thin client that calls the actor and hands back the result.
