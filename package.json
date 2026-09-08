@@ -9,7 +9,8 @@
   "files": [
     "build",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "SECURITY.md"
   ],
   "scripts": {
     "build": "tsc && chmod +x build/index.js",
@@ -37,11 +38,11 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
-    "zod": "^3.23.8"
+    "zod": "3.25.76"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",
-    "typescript": "^5.6.0"
+    "typescript": "5.9.3"
   },
   "mcpName": "com.mambabuilt/mcp-icp-fit-scorer"
 }
