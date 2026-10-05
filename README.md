@@ -147,7 +147,7 @@ The tool returns the actor's flat JSON row for the scored company, including `ic
 
 ## How each call runs
 
-Each call starts the actor run, polls it until it finishes, then reads the dataset. The run is allowed 300 seconds, as before. If the run is still going when this call stops waiting, the call returns the run id and a console link instead of a timeout, so the result is never lost.
+Each call starts the actor run, polls it until it finishes, then reads the dataset. The run is allowed 1,800 seconds. If the run is still going when this call stops waiting, the call returns the run id and a console link instead of a timeout, so the result is never lost.
 
 ## Full actor documentation
 
