@@ -21,10 +21,11 @@ type ToolResult = {
   content: Array<{ type: "text"; text: string }>;
 };
 
-// How long the actor run itself is allowed to take, in seconds. Kept at the
-// value this wrapper has always passed to the actor, so the change to start and
-// poll changes how the wrapper waits, not how long the actor may run.
-const ACTOR_RUN_TIMEOUT_SECS = 300;
+// How long the actor run itself is allowed to take, in seconds. One value for
+// every Mamba Labs wrapper, set 2026-10-05: start and poll exists so a long run
+// survives, and a shorter limit would end the long runs it was built for. Past
+// this limit the run ends TIMED-OUT and the caller is told so, with the run id.
+const ACTOR_RUN_TIMEOUT_SECS = 1800;
 
 // How long this wrapper waits for that run, in milliseconds. The actor's own
 // timeout plus two minutes, so the run's own TIMED-OUT status is what the
