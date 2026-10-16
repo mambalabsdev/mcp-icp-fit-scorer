@@ -6,6 +6,16 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
+// Optional per call spending cap, passed through to the actor's own max_charge_usd
+// input. The actor enforces it; this wrapper only forwards it when set.
+const MAX_CHARGE_USD = z
+  .number()
+  .min(0)
+  .optional()
+  .describe(
+    "Optional spending cap for this call, in USD, passed to the actor as max_charge_usd. The run stops before any charge that would take it past this amount and keeps every row already charged. Leave empty to rely only on the maximum charge per run set on your Apify account.",
+  );
+
 const here = dirname(fileURLToPath(import.meta.url));
 const pkg = JSON.parse(
   readFileSync(join(here, "..", "package.json"), "utf8"),
@@ -58,7 +68,9 @@ async function runActor(
   actorPath: string,
   actorLabel: string,
   input: Record<string, unknown>,
+  maxChargeUsd?: number,
 ): Promise<ToolResult> {
+  if (maxChargeUsd !== undefined) input = { ...input, max_charge_usd: maxChargeUsd };
   const APIFY_TOKEN = process.env.APIFY_TOKEN;
   if (!APIFY_TOKEN) {
     return { isError: true, content: [{ type: "text", text: "APIFY_TOKEN is not set. Create a token at https://console.apify.com/account/integrations and set it as the APIFY_TOKEN environment variable." }] };
@@ -204,10 +216,10 @@ server.registerTool(
   {
     title: "Score ICP Fit",
     description:
-      "Score a company against your ideal customer profile (ICP) using weighted signals. Returns a 0 to 100 icp_score, an A to D icp_tier, and a per-signal breakdown as a flat, Clay-ready JSON row. Define your ICP with a prebuilt template, a JSON scoring_config, or a plain-English icp_description (which requires llm_api_key). Read-only; requires an APIFY_TOKEN and consumes Apify credits per call.",
+      "Score a company against your ideal customer profile (ICP) using weighted signals. Returns a 0 to 100 icp_score, an A to D icp_tier, and a per-signal breakdown as a flat, Clay-ready JSON row. Define your ICP with a prebuilt template, a JSON scoring_config, or a plain-English icp_description (which requires llm_api_key). Reads public data and writes nothing; requires an APIFY_TOKEN and consumes Apify credits per call.",
     annotations: {
       title: "Score ICP Fit",
-      readOnlyHint: true,
+      readOnlyHint: false,
       destructiveHint: false,
       idempotentHint: true,
       openWorldHint: true,
@@ -425,6 +437,7 @@ server.registerTool(
       .describe(
         "Number of target-keyword matches found, from the Job Board Keyword Signal Scanner (Actor ID 4DvqpvhMR74NLcDDY). Scores via keyword_signal_match when at or above min_keyword_matches (default 1). Accepts a numeric string.",
       ),
+      max_charge_usd: MAX_CHARGE_USD,
   },
   },
   async (args) => {
@@ -476,7 +489,7 @@ server.registerTool(
       if (args[key] !== undefined) input[key] = args[key];
     }
 
-    return runActor("W161DT8W4kW55dMFh", "ICP Fit Scorer", input);
+    return runActor("W161DT8W4kW55dMFh", "ICP Fit Scorer", input, args.max_charge_usd);
   },
 );
 
